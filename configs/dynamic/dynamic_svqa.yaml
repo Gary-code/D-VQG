@@ -1,0 +1,30 @@
+exp_name: 'dynamic_svqa'
+gpu_id: [0]
+logger:
+    display_id: 9908
+model:
+    change_detector:
+        input_dim: 2048
+    speaker:
+        embed_input_dim: 2304
+        embed_dim: 512
+        input_dim: 768
+        vocab_size: 97
+        seq_length: 44
+
+data:
+    dataset: 'svqa_dataset'
+    vocab_json: '../VideoQG/data/SVQA/vocab.json'
+    h5_label_file: './data/labels.h5'
+    image_feature_file: '../VideoQG/data/SVQA/svqa_appearance_feat_24_10clip.h5'
+    type_mapping_json: './data/type_mapping.json'
+    train:
+        batch_size: 128
+train:
+    max_iter: 10000
+    optim:
+        type: 'adam'
+        lr: 0.0001
+        weight_decay: 0.0
+
+dataset_name: 'svqa'
